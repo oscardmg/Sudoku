@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sudoku — HTML + CSS + JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="board-wrap">
+      <div class="topbar">
+        <div class="brand">🧩 Sudoku</div>
+        <div class="controls">
+          <label for="difficulty" class="legend">Dificultad</label>
+          <select id="difficulty" title="Selecciona dificultad">
+            <option value="easy">Fácil</option>
+            <option value="medium" selected>Media</option>
+            <option value="hard">Difícil</option>
+          </select>
+          <button id="newGameBtn" class="primary">Nuevo juego</button>
+          <button id="solveBtn" class="danger">Resolver</button>
+          <span class="timer" id="timer">00:00</span>
+        </div>
+      </div>
+
+      <div id="board" class="board" role="grid" aria-label="Sudoku"></div>
+      <div class="status" id="status" aria-live="polite"></div>
+    </div>
+
+    <div class="side">
+      <div class="pad">
+        <h3>Teclado</h3>
+        <div class="keys">
+          <button class="key" data-key="1">1</button>
+          <button class="key" data-key="2">2</button>
+          <button class="key" data-key="3">3</button>
+          <button class="key" data-key="4">4</button>
+          <button class="key" data-key="5">5</button>
+          <button class="key" data-key="6">6</button>
+          <button class="key" data-key="7">7</button>
+          <button class="key" data-key="8">8</button>
+          <button class="key" data-key="9">9</button>
+          <button class="key wide" id="eraseKey" title="Borrar (Backspace)">Borrar</button>
+          <button class="key toggle wide" id="notesToggle" aria-pressed="false" title="Modo notas (N)">Notas</button>
+        </div>
+        <p class="legend">
+          Click o flechas para moverte · Números para escribir · Backspace borra · <b>N</b> activa notas.
+        </p>
+      </div>
+
+      <div class="actions">
+        <h3>Acciones</h3>
+        <div class="keys" style="grid-template-columns:repeat(2,1fr)">
+          <button class="key good" id="checkBtn">Comprobar</button>
+          <button class="key" id="hintBtn" title="Rellena una celda correcta">Pista</button>
+          <button class="key" id="clearBtn">Limpiar</button>
+          <button class="key" id="restartBtn">Reiniciar</button>
+          <button class="key" id="undoBtn" title="Deshacer (Ctrl/⌘+Z)">Deshacer</button>
+          <button class="key" id="redoBtn" title="Rehacer (Ctrl/⌘+Shift+Z o Ctrl+Y)">Rehacer</button>
+        </div>
+        <p class="legend">
+          Atajos: <b>Ctrl/⌘+Z</b> deshacer · <b>Ctrl/⌘+Shift+Z</b> o <b>Ctrl+Y</b> rehacer.
+        </p>
+      </div>
+
+      <div class="footer">Hecho con ❤️ en HTML, CSS y JavaScript</div>
+    </div>
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+</html>
